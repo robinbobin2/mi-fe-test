@@ -4,12 +4,19 @@ import styles from './button.module.css';
 
 type ButtonProps = {
   primary?: boolean;
+  secondary?: boolean;
+  danger?: boolean;
+  neutral?: boolean;
+  classes?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button = ({ primary, ...props }: ButtonProps) => {
+export const Button = ({ primary, secondary, danger, neutral, classes, ...props }: ButtonProps) => {
   let className = styles.button;
 
-  if (primary) className += ` ${styles.primary}`;
-
-  return <button className={className} {...props} />;
+  // todo - introduce variant prop 
+  if (primary) className += ` btn-primary `;
+  if (secondary) className += ` btn-secondary `;
+  if (danger) className += ` btn-error `;
+  if (neutral) className += ` btn-neutral `;
+  return <button className={`btn ${className} ${classes}`} {...props} />;
 };

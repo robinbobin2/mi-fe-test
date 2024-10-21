@@ -1,11 +1,14 @@
 .button {
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-  color: var(--white);
   cursor: pointer;
 }
 
 .primary {
   background: var(--green);
+}
+.secondary {
+  background: var(--blue);
+}
+
+.primary:hover {
+  background: var(--green-dark);
 }
